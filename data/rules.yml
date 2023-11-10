@@ -1,12 +1,12 @@
 version: "3.1"
 
 rules:
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
+  - rule: Say 'Goodbye and send contack info' anytime the user end the conversation
+steps:
   - intent: bot_challenge
   - action: utter_iamabot

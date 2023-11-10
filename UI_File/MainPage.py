@@ -1,4 +1,6 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
+
+from UI_File import CheckAttendance
 
 
 class Ui_Dialog(object):
@@ -21,9 +23,15 @@ class Ui_Dialog(object):
         self.pushButton_4 = QtWidgets.QPushButton(Dialog)
         self.pushButton_4.setGeometry(QtCore.QRect(120, 210, 151, 31))
         self.pushButton_4.setObjectName("pushButton_4")
-
+        self.pushButton.clicked.connect(self.check_attendance_window)
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def check_attendance_window(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = CheckAttendance.Ui_Dialog()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -44,11 +52,3 @@ class Ui_Dialog(object):
         self.pushButton_4.setText(_translate("Dialog", "Teacher discussion"))
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_Dialog()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
